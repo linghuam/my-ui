@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基于 vertical-align 属性的水平垂直居中弹框</title>
+  <style>
+  .container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    text-align: center;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto; /*可以实现弹框高度超过一屏时依然能看见屏幕外的内容*/
+  }
+  .container:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  .container > .dialog {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    white-space: normal;
+    background: white;
+    width: 240px;
+    height: 120px;
+    padding: 20px;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dialog">基于 vertical-align 属性的水平垂直居中弹框</div>
+  </div>
+</body>
+</html>

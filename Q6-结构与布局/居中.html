@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>居中</title>
+  <style>
+  .parent {
+    background: #EBEEF5;
+  }
+  .child {
+    background: #909399;
+  }
+  </style>
+</head>
+<body>
+
+<h2>水平居中</h2>
+
+<style>
+.h-center-inline.parent {
+  width: 400px;
+  height: 200px;
+  text-align: center;
+}
+.h-center-block.parent {
+  width: 400px;
+  height: 200px;
+}
+.h-center-block.parent > .child {
+  width: 200px;
+  margin: auto;
+}
+</style>
+
+<p>行内元素：</p>
+
+<div class="h-center-inline parent">
+  <span class="child">子元素为行内元素水平居中，只需设置父元素的 text-align:center </span>
+</div>
+
+<p>块级元素：</p>
+
+<div class="h-center-block parent">
+  <div class="child">子元素为块级元素的水平居中，设置子元素的 margin:auto </div>
+</div>
+
+<hr>
+<h2>垂直居中</h2>
+
+<style>
+.v-center-1.parent {
+  line-height: 120px;
+}
+.v-center-1.parent > .child {
+  display: inline-block;  /*1、保持内联元素可以设置vertical-align属性；2、内联元素会创造幽灵空白结点，使父元素 line-height 生效，相当于撑起了一个高度为120宽度为0的空白结点*/
+  line-height: 20px;
+  vertical-align: middle; /*内联元素默认是基线对齐的*/
+  width: 200px;
+}
+</style>
+
+<div class="v-center-1 parent">
+  <div class="child">多行文字垂直居中多行文字垂直居中多行文字垂直居</div>
+</div>
+
+<hr>
+<h2>水平且垂直</h2>
+
+<style>
+/* 子元素为给定宽高 */
+.hv-center-1.parent {
+  width: 400px;
+  height: 200px;
+  position: relative;
+}
+.hv-center-1.parent > .child {
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  /* left: 50%;
+  top: 50%;
+  margin-left: calc(-200px/2);
+  margin-top: calc(-100px/2); */
+  /*简化*/
+  left: calc(50% - 200px/2);
+  top: calc(50% - 100px/2);
+}
+
+/* 父子均可为任意宽高 */
+.hv-center-2.parent {
+  display: table;
+  width: 400px;
+  height: 200px;
+}
+.hv-center-2.parent > .child {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 父子均可为任意宽高2 */
+.hv-center-2-1.parent, .hv-center-2-1.parent > .child {
+  text-align: center;
+  white-space: nowrap;
+}
+.hv-center-2-1.parent {
+  width: 400px;
+  height: 200px;
+}
+.hv-center-2-1.parent::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.hv-center-2-1.parent > .child {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 父子均可为任意宽高3 */
+.hv-center-2-2.parent {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+.hv-center-2-2.parent > .child {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 父子均可为任意宽高4 */
+.hv-center-2-3.parent {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<p>子元素为给定宽高</p>
+
+<div class="hv-center-1 parent">
+  <div class="child">子元素为给定宽高</div>
+</div>
+
+<p>父子均可为任意宽高</p>
+
+<div class="hv-center-2 parent">
+  <div class="child">
+    <a href="https://css-tricks.com/centering-in-the-unknown/">table布局法：</a>父子均可为任意宽高
+  </div>
+</div>
+
+<p></p>
+<div class="hv-center-2-1 parent">
+  <div class="child">
+    <a href="https://css-tricks.com/centering-in-the-unknown/">行内块法：</a>父子均可为任意宽高
+  </div>
+</div>
+
+<p></p>
+<div class="hv-center-2-2 parent">
+  <div class="child">
+    <a href="https://css-tricks.com/centering-in-the-unknown/">transform法：</a>父子均可为任意宽高
+  </div>
+</div>
+
+<p></p>
+<div class="hv-center-2-3 parent">
+  <div class="child">
+    <a href="https://css-tricks.com/centering-in-the-unknown/">flex布局法(最佳实践)：</a>父子均可为任意宽高
+  </div>
+</div>
+
+</body>
+</html>

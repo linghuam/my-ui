@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>半透明边框</title>
+  <style>
+    body {
+      background: silver;
+    }
+    .bgclip {
+      width: 200px;
+      height: 200px;
+      background:red;
+      padding: 10px;
+      border: 10px dashed rgba(0,0,0,0.3);
+    }
+    .bgclip-border-box {
+      background-clip: border-box;
+    }
+    .bgclip-padding-box {
+      background-clip: padding-box;
+    }
+    .bgclip-conent-box {
+      background-clip: content-box;
+    }
+
+    .border-half-opacity {
+      background-clip: padding-box;
+      border: 12px solid rgba(0,0,0,.5);
+    }
+  </style>
+</head>
+<body>
+
+  <p>background-clip: border-box;</p>
+  <div class="bgclip bgclip-border-box">内容</div>
+
+  <p>background-clip: padding-box;</p>
+  <div class="bgclip bgclip-padding-box">内容</div>
+
+  <p>background-clip: content-box;</p>
+  <div class="bgclip bgclip-conent-box">内容</div>
+
+  <p>半透明边框实现</p>
+  <div class="bgclip border-half-opacity">内容</div>
+</body>
+</html>

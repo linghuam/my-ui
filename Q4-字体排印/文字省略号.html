@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字省略号</title>
+  <style>
+  .text {
+    width: 120px;
+    border: 1px solid silver;
+    /* 控制文字不换行 */
+    white-space: nowrap;
+    /* 控制文字超出时显示省略号 */
+    text-overflow: ellipsis;
+    /* 没有它一切都无法生效 */
+    overflow: hidden;
+  }
+  </style>
+</head>
+<body>
+  <div class="text">我是一段文字我是一段文字我是一段文字我是一段文字我是一段文字我是一段文字我是一段文字我是一段文字</div>
+</body>
+</html>

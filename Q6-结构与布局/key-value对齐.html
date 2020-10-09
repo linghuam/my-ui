@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>key-value对齐</title>
+    <style>
+    #container {
+      width: 600px;
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+    }
+    .item {}
+    .key {}
+    .value {
+      margin-left: 16px;
+    }
+    </style>
+  </head>
+  <body>
+  <div id="container">
+  </div>
+  <script>
+    var arr = [
+      { key: '姓名', value: 'linghuam' },
+      { key: '年龄', value: 'linghuam' },
+      { key: '性别', value: 'linghuam' },
+      { key: '身份证号', value: 'linghuam' },
+      { key: '身份发顺丰证号', value: 'linghuam' },
+    ];
+    var html = [];
+    for (let i = 0, len = arr.length; i < len; i++) {
+      let obj = arr[i];
+      html.push('<div class="item">');
+      html.push('<span class="key">'+ obj.key +'</span>');
+      html.push('<span class="value">'+ obj.value +'</span>');
+      html.push('</div>');
+    }
+    document.getElementById('container').innerHTML = html.join('');
+  </script>
+  </body>
+</html>
